@@ -28,17 +28,11 @@ configFile.withReader {
 }
 
 repositories {
-    ivy {
-        url "http://bspk.rs/MC"
-        layout "pattern", {
-            artifact "[module]/deobf/%5B${config.minecraft_version}%5D[module]-deobf-[revision].[ext]"
-            artifact "[module]/deobf/[${config.minecraft_version}][module]-deobf-[revision].[ext]"
-        }
-    }
+    mavenCentral()
 }
 
 dependencies {
-    compile name: 'bspkrsCore', version: "${config.bscore_version}", ext: 'jar'
+    compile group: bspkrscore:bspkrsCore:7.01'
 }
 
 group = config.group_name
