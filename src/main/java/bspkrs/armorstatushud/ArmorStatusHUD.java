@@ -187,7 +187,7 @@ public class ArmorStatusHUD
                 && !mc.gameSettings.showDebugInfo)
         {
             GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-            scaledResolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
+            scaledResolution = new ScaledResolution(mc);
             displayArmorStatus(mc);
             GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
         }
@@ -229,7 +229,7 @@ public class ArmorStatusHUD
         i += canDisplayItem(player.inventory.armorItemInSlot(1)) ? 1 : 0;
         i += canDisplayItem(player.inventory.armorItemInSlot(2)) ? 1 : 0;
         i += canDisplayItem(player.inventory.armorItemInSlot(3)) ? 1 : 0;
-        i += showEquippedItem && canDisplayItem(player.getCurrentEquippedItem()) ? 1 : 0;
+        i += showEquippedItem && canDisplayItem(player.getHeldItemMainhand()) ? 1 : 0;
         return i;
     }
 
@@ -246,7 +246,7 @@ public class ArmorStatusHUD
         {
             ItemStack itemStack = null;
             if ((i == -1) && showEquippedItem)
-                itemStack = mc.thePlayer.getCurrentEquippedItem();
+                itemStack = mc.thePlayer.getHeldItemMainhand();
             else if (i != -1)
                 itemStack = mc.thePlayer.inventory.armorInventory[i];
 

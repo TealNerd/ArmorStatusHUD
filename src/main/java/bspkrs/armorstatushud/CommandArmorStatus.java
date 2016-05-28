@@ -1,9 +1,11 @@
 package bspkrs.armorstatushud;
 
-import net.minecraft.command.CommandBase;
-import net.minecraft.command.ICommandSender;
 import bspkrs.armorstatushud.fml.gui.GuiASHConfig;
 import bspkrs.fml.util.DelayedGuiDisplayTicker;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommand;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.server.MinecraftServer;
 
 public class CommandArmorStatus extends CommandBase
 {
@@ -20,7 +22,7 @@ public class CommandArmorStatus extends CommandBase
     }
 
     @Override
-    public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)
+    public boolean checkPermission(MinecraftServer server, ICommandSender par1ICommandSender)
     {
         return true;
     }
@@ -32,7 +34,7 @@ public class CommandArmorStatus extends CommandBase
     }
 
     @Override
-    public void processCommand(ICommandSender var1, String[] var2)
+    public void execute(MinecraftServer server, ICommandSender var1, String[] var2)
     {
         try
         {
@@ -45,7 +47,7 @@ public class CommandArmorStatus extends CommandBase
     }
 
     @Override
-    public int compareTo(Object object)
+    public int compareTo(ICommand object)
     {
         if (object instanceof CommandBase)
             return this.getCommandName().compareTo(((CommandBase) object).getCommandName());
