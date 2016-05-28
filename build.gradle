@@ -32,7 +32,7 @@ repositories {
 }
 
 dependencies {
-    compile group: bspkrscore:bspkrsCore:7.01'
+    compile 'bspkrscore:bspkrsCore:7.01'
 }
 
 group = config.group_name
