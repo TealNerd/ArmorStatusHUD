@@ -28,7 +28,7 @@ configFile.withReader {
 }
 
 repositories {
-    mavenCentral()
+    mavenLocal()
 }
 
 dependencies {
